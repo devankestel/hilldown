@@ -14,8 +14,9 @@ class HilldownDraw:
         self.drawing.append(draw.Circle(x0, y0, radius,
             fill=color, stroke_width=self.stroke_width, stroke=border))
 
-    def Line(self):
-        pass
+    def Line(self, x1, y1, x2, y2):
+        self.drawing.append(draw.Line(x1, y1, x2, y2,
+            stroke='red', stroke_width=self.stroke_width, fill='none'))  
 
     def save(self):
         self.drawing.saveSvg('{}.svg'.format(self.name))

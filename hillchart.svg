@@ -5,4 +5,5 @@
 </defs>
 <circle cx="0" cy="0" r="15" fill="red" stroke-width="2" stroke="black" />
 <circle cx="30" cy="0" r="15" fill="yellow" stroke-width="2" stroke="black" />
+<path d="M0,250 L500,250" stroke="red" stroke-width="2" fill="none" />
 </svg>

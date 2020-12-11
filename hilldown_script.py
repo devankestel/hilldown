@@ -21,6 +21,7 @@ my_drawing = HilldownDraw(width=500, height=500)
 
 my_drawing.Circle(x0=0, y0=0, radius=15)
 my_drawing.Circle(x0=30, y0=0, radius=15, color='yellow')
+my_drawing.Line(0, -250, 500, -250)
 my_drawing.save()
 
 
