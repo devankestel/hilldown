@@ -3,7 +3,7 @@ import drawSvg as draw
 class HilldownDraw:
     def __init__(self, width=200, height=100, name='hillchart'):
         # d = draw.Drawing(200, 100, origin='center', displayInline=False)
-        self.drawing = draw.Drawing(width, height, origin='center', displayInline=False)
+        self.drawing = draw.Drawing(width, height, origin=(0,0), displayInline=False)
         self.stroke_width = 2
         self.name = name
         self.greeting = 'Hello'
