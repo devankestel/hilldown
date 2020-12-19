@@ -1,6 +1,9 @@
 Jobs to be done
 * Get equation of bell curve
+    * Make function that yields an array of points along a bell curve
 * Figure out how to draw path in SVG
+    * Make function to draw path segment
+    * Make function that loops through with array of points
 * Figure out how to get a `.tool-versions` file going
 
 
