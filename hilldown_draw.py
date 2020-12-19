@@ -1,4 +1,7 @@
 import drawSvg as draw
+# import matplotlib.pyplot as plt
+import numpy as np
+import scipy.stats as stats
 
 class HilldownDraw:
     def __init__(self, width=200, height=100, name='hillchart'):
@@ -8,6 +11,24 @@ class HilldownDraw:
         self.name = name
         self.greeting = 'Hello'
         print(self.greeting)
+    
+    @staticmethod
+    def get_bell_curve(std_dev=30, mean=100, num_points=100, height=500):
+    
+        start = mean - 3*std_dev
+        stop = mean + 3*std_dev
+        stretch_factor = 2
+        xs = np.linspace(start=start,stop=stop, num=num_points)
+        stretch_xs = []
+        result = []
+        for x in xs:
+            y = height*stats.norm.pdf(x, mean, std_dev)
+            stretch_xs.append(stretch_factor*x)
+            result.append((stretch_xs, y))
+        # plt.plot(mxs, height*stats.norm.pdf(xs, mean, std_dev))
+        # plt.show()
+        return result
+
 
     def Circle(self, x0=-40, y0=-10, radius=30, color='red', border='black'):
 
