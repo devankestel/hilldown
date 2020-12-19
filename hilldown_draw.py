@@ -13,7 +13,7 @@ class HilldownDraw:
         print(self.greeting)
     
     @staticmethod
-    def get_bell_curve(std_dev=30, mean=100, num_points=100, height=500):
+    def get_bell_curve(std_dev=30, mean=100, num_points=100, height=50000):
     
         start = mean - 3*std_dev
         stop = mean + 3*std_dev
@@ -23,9 +23,11 @@ class HilldownDraw:
         result = []
         for x in xs:
             y = height*stats.norm.pdf(x, mean, std_dev)
-            stretch_xs.append(stretch_factor*x)
-            result.append((stretch_xs, y))
-        # plt.plot(mxs, height*stats.norm.pdf(xs, mean, std_dev))
+            stretched_rounded_x = round(stretch_factor*x)
+            stretch_xs.append(stretched_rounded_x)
+            round_y = round(y)
+            result.append((stretched_rounded_x, round_y))
+        # plt.plot(stretch_xs, height*stats.norm.pdf(xs, mean, std_dev))
         # plt.show()
         return result
 
