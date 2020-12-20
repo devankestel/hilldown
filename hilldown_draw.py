@@ -32,14 +32,17 @@ class HilldownDraw:
         return result
 
 
-    def Circle(self, x0=-40, y0=-10, radius=30, color='red', border='black'):
+    def circle(self, x0=-40, y0=-10, radius=30, color='red', border='black'):
 
         self.drawing.append(draw.Circle(x0, y0, radius,
             fill=color, stroke_width=self.stroke_width, stroke=border))
 
-    def Line(self, x1, y1, x2, y2):
+    def line(self, x1, y1, x2, y2):
         self.drawing.append(draw.Line(x1, y1, x2, y2,
-            stroke='red', stroke_width=self.stroke_width, fill='none'))  
+            stroke='red', stroke_width=self.stroke_width, fill='none')) 
+
+    def path_segment(self): 
+        pass
 
     def save(self):
         self.drawing.saveSvg('{}.svg'.format(self.name))
