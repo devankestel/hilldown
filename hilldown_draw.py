@@ -41,8 +41,21 @@ class HilldownDraw:
         self.drawing.append(draw.Line(x1, y1, x2, y2,
             stroke='red', stroke_width=self.stroke_width, fill='none')) 
 
-    def path_segment(self): 
-        pass
+    def path(self):
+        path = ''
+        return path 
+
+    def path_segment(self, path, point, start=False, close=False):
+        
+        x, y = point
+        
+        if start:
+            path.M(x, y)
+        elif close:
+            path.Z()
+        else:
+            path.l(x, y)
+        
 
     def save(self):
         self.drawing.saveSvg('{}.svg'.format(self.name))

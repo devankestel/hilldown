@@ -17,13 +17,24 @@ g.append(draw.Arc(60,-20,20,270,60,cw=True,
             stroke='blue', stroke_width=1, fill='black', fill_opacity=0.3))
 g.saveSvg('arc3.svg')
 
-my_drawing = HilldownDraw(width=500, height=500)
+my_drawing = HilldownDraw(width=50000, height=50000)
 
 my_drawing.circle(x0=0, y0=0, radius=15)
 my_drawing.circle(x0=30, y0=0, radius=15, color='yellow')
 my_drawing.line(0, -250, 500, -250)
+path = draw.Path(stroke_width=2, stroke='green', fill='transparent')
+bell_curve_points = HilldownDraw.get_bell_curve()
+# my_drawing.path_segment(path, (5, 5), start=True)
+# my_drawing.path_segment(path, (30, 150))
+# my_drawing.path_segment(path, (15, 75))
+# my_drawing.path_segment(path, (5, 200))
+my_drawing.path_segment(path, (0, 0), start=True)
+for point in bell_curve_points: 
+    my_drawing.path_segment(path, point)
+my_drawing.drawing.append(path)
 my_drawing.save()
-result = HilldownDraw.get_bell_curve()
-print(result)
+
+print(bell_curve_points)
+
 
 
