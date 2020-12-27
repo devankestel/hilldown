@@ -6,7 +6,7 @@ Jobs to be done
     * Make function that loops through with array of points
 * Figure out how to get a `.tool-versions` file going
 
-
+* [Illustrated guide to SVG paths](https://css-tricks.com/svg-path-syntax-illustrated-guide/)
 
 * `d = draw.Drawing(2, 6.05, origin=(-1,-1.05))`
 * https://github.com/cduck/drawSvg

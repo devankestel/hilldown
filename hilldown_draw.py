@@ -13,11 +13,11 @@ class HilldownDraw:
         print(self.greeting)
     
     @staticmethod
-    def get_bell_curve(std_dev=30, mean=100, num_points=100, height=50000):
+    def get_bell_curve(std_dev=30, mean=100, num_points=100, height=20000):
     
         start = mean - 3*std_dev
         stop = mean + 3*std_dev
-        stretch_factor = 2
+        stretch_factor = 2.6
         xs = np.linspace(start=start,stop=stop, num=num_points)
         stretch_xs = []
         result = []
@@ -54,7 +54,7 @@ class HilldownDraw:
         elif close:
             path.Z()
         else:
-            path.l(x, y)
+            path.L(x, y)
         
 
     def save(self):
