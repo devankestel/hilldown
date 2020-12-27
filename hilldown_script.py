@@ -19,26 +19,16 @@ g.saveSvg('arc3.svg')
 
 my_drawing = HilldownDraw(width=500, height=500)
 
-yaxis = draw.Path(stroke_width=2, stroke='black', fill='transaparent')
-my_drawing.path_segment(yaxis, (250, 0), start=True)
-my_drawing.path_segment(yaxis, (250, 500))
-my_drawing.drawing.append(yaxis)
 
-xaxis = draw.Path(stroke_width=2, stroke='black', fill='transaparent')
-my_drawing.path_segment(xaxis, (0, 250), start=True)
-my_drawing.path_segment(xaxis, (500, 250))
-my_drawing.drawing.append(xaxis)
+yaxis_points = [(250, 0), (250, 500)]
+my_drawing.unclosed_path(yaxis_points)
 
-path = draw.Path(stroke_width=2, stroke='green', fill='transparent')
+xaxis_points = [(0, 250), (500, 250)]
+my_drawing.unclosed_path(xaxis_points)
+
 bell_curve_points = HilldownDraw.get_bell_curve()
-# my_drawing.path_segment(path, (5, 5), start=True)
-# my_drawing.path_segment(path, (30, 150))
-# my_drawing.path_segment(path, (15, 75))
-# my_drawing.path_segment(path, (5, 200))
-my_drawing.path_segment(path, (0, 0), start=True)
-for point in bell_curve_points: 
-    my_drawing.path_segment(path, point)
-my_drawing.drawing.append(path)
+my_drawing.unclosed_path(bell_curve_points)
+
 my_drawing.circle(x0=125, y0=60, radius=15)
 my_drawing.circle(x0=253, y0=265, radius=15, color='yellow')
 my_drawing.circle(x0=347, y0=142, radius=15, color='blue')

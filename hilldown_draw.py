@@ -37,25 +37,14 @@ class HilldownDraw:
         self.drawing.append(draw.Circle(x0, y0, radius,
             fill=color, stroke_width=self.stroke_width, stroke=border))
 
-    def line(self, x1, y1, x2, y2):
-        self.drawing.append(draw.Line(x1, y1, x2, y2,
-            stroke='red', stroke_width=self.stroke_width, fill='none')) 
-
-    def path(self):
-        path = ''
-        return path 
-
-    def path_segment(self, path, point, start=False, close=False):
-        
-        x, y = point
-        
-        if start:
-            path.M(x, y)
-        elif close:
-            path.Z()
-        else:
+    def unclosed_path(self, points, stroke='black'):
+        x0, y0 = points.pop(0)
+        path = draw.Path(stroke_width=self.stroke_width, stroke=stroke, fill='transparent')
+        path.M(x0, y0)
+        for point in points:
+            x, y = point
             path.L(x, y)
-        
+        self.drawing.append(path)
 
     def save(self):
         self.drawing.saveSvg('{}.svg'.format(self.name))
