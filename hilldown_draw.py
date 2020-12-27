@@ -13,11 +13,11 @@ class HilldownDraw:
         print(self.greeting)
     
     @staticmethod
-    def get_bell_curve(std_dev=30, mean=100, num_points=100, height=50000):
+    def get_bell_curve(std_dev=30, mean=100, num_points=100, height=20000):
     
         start = mean - 3*std_dev
         stop = mean + 3*std_dev
-        stretch_factor = 2
+        stretch_factor = 2.6
         xs = np.linspace(start=start,stop=stop, num=num_points)
         stretch_xs = []
         result = []
@@ -32,14 +32,19 @@ class HilldownDraw:
         return result
 
 
-    def Circle(self, x0=-40, y0=-10, radius=30, color='red', border='black'):
+    def circle(self, x0=-40, y0=-10, radius=30, color='red', border='black'):
 
         self.drawing.append(draw.Circle(x0, y0, radius,
             fill=color, stroke_width=self.stroke_width, stroke=border))
 
-    def Line(self, x1, y1, x2, y2):
-        self.drawing.append(draw.Line(x1, y1, x2, y2,
-            stroke='red', stroke_width=self.stroke_width, fill='none'))  
+    def unclosed_path(self, points, stroke='black'):
+        x0, y0 = points.pop(0)
+        path = draw.Path(stroke_width=self.stroke_width, stroke=stroke, fill='transparent')
+        path.M(x0, y0)
+        for point in points:
+            x, y = point
+            path.L(x, y)
+        self.drawing.append(path)
 
     def save(self):
         self.drawing.saveSvg('{}.svg'.format(self.name))

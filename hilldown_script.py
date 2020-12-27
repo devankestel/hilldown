@@ -19,11 +19,22 @@ g.saveSvg('arc3.svg')
 
 my_drawing = HilldownDraw(width=500, height=500)
 
-my_drawing.Circle(x0=0, y0=0, radius=15)
-my_drawing.Circle(x0=30, y0=0, radius=15, color='yellow')
-my_drawing.Line(0, -250, 500, -250)
+
+yaxis_points = [(250, 0), (250, 500)]
+my_drawing.unclosed_path(yaxis_points)
+
+xaxis_points = [(0, 250), (500, 250)]
+my_drawing.unclosed_path(xaxis_points)
+
+bell_curve_points = HilldownDraw.get_bell_curve()
+my_drawing.unclosed_path(bell_curve_points)
+
+my_drawing.circle(x0=125, y0=60, radius=15)
+my_drawing.circle(x0=253, y0=265, radius=15, color='yellow')
+my_drawing.circle(x0=347, y0=142, radius=15, color='blue')
 my_drawing.save()
-result = HilldownDraw.get_bell_curve()
-print(result)
+
+print(bell_curve_points)
+
 
 
