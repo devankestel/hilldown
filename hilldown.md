@@ -1,30 +1,30 @@
 * Chart 1 Name
 * Chart 1 Date
     * Dot Name 1
-        * Hill Phase Name
+        * Hill Phase Name --
         * Dot detail
     * Dot Name 2
-        * Hill Phase Name
+        * Hill Phase Name ++
         * Dot detail
     * Dot Name 3
-        * Hill Phase Name
+        * Hill Phase Name --
         * Dot Detail
 
 * Feature
 * 12/01/2020
     * Add model fields
-        * Finished
+        * Conquered
     * Create migration
-        * Down
+        * Desc | +++
     * Create Endpoint
-        * Top
+        * Apex 
     * Create Logic Processor
-        * Up
+        * Asc | -
     * Write Unit Tests
         * Unstarted
 
 * probably want this package - https://pypi.org/project/drawSvg/
-
+* + and - indicate movement on hill
 * Idea - Dot has a different border color depending on Status of
     * New
     * Blocked (red?)
