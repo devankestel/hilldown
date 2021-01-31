@@ -1,5 +1,5 @@
 import drawSvg as draw
-from hilldown_draw import HilldownDraw
+from hilldown_draw import HilldownDraw, Color, Dot, Zone, LabelOrientation
 
 # Draw Arcs
 e = draw.Drawing(200, 100, origin='center', displayInline=False)
@@ -30,7 +30,9 @@ bell_curve_points = HilldownDraw.get_bell_curve()
 my_drawing.unclosed_path(bell_curve_points)
 
 my_drawing.circle(x0=125, y0=60, radius=15)
-my_drawing.circle(x0=253, y0=265, radius=15, color='yellow')
+my_yellow_dot = Dot(position=(253, 265), description='Write unit test', label_orientation=LabelOrientation.TOP, color=Color.YELLOW)
+dot_x, dot_y = my_yellow_dot.position
+my_drawing.circle(x0=dot_x, y0=dot_y, radius=15, color=my_yellow_dot.color.name)
 my_drawing.circle(x0=347, y0=142, radius=15, color='blue')
 my_drawing.save()
 
