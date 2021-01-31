@@ -1,7 +1,30 @@
+import enum
 import drawSvg as draw
 # import matplotlib.pyplot as plt
 import numpy as np
 import scipy.stats as stats
+
+class Zone(enum.Enum):
+    QUEUED = 1
+    ASC_BASE = 2
+    ASC_PEAK = 3
+    APEX = 4
+    DESC_PEAK = 5
+    DESC_BASE = 6
+    CONQUERED = 7
+
+class LabelOrientation(enum.Enum):
+    TOP = 1
+    RIGHT = 2
+    BOTTOM = 3
+    LEFT = 4
+
+class Dot: 
+    def __init__(self, position=(0, 0), description='My Item', label_orientation=1, zone=1):
+        self.position = position
+        self. description = description
+        self.relative_position = relative_position
+        self.zone = zone
 
 class HilldownDraw:
     def __init__(self, width=200, height=100, name='hillchart'):
