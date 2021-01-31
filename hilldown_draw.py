@@ -19,12 +19,36 @@ class LabelOrientation(enum.Enum):
     BOTTOM = 3
     LEFT = 4
 
+class Color(enum.Enum):
+    RED = 1
+    YELLOW = 2
+    BLUE = 3
+    GREEN = 4
+
 class Dot: 
-    def __init__(self, position=(0, 0), description='My Item', label_orientation=1, zone=1):
+    def __init__(self, position=(0, 0), description='My Item', label_orientation=LabelOrientation.RIGHT, zone=Zone.QUEUED, color=Color.RED):
         self.position = position
         self. description = description
-        self.relative_position = relative_position
+        self.label_orientation = label_orientation
         self.zone = zone
+        self.color = color
+    
+    def change_position(self, new_position):
+        self.position = new_position
+    
+    def change_zone(self, new_zone):
+        self.zone = new_zone
+    
+    def change_label_orientation(self, new_label_orientation):
+        self.label_orientation = new_label_orientation
+
+    def change_description(self, new_descripiton):
+        self.description = new_descripiton
+
+    def change_color(self, new_color):
+        self.color = new_color
+    
+
 
 class HilldownDraw:
     def __init__(self, width=200, height=100, name='hillchart'):
