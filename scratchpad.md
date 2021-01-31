@@ -11,3 +11,14 @@ Jobs to be done
 * `d = draw.Drawing(2, 6.05, origin=(-1,-1.05))`
 * https://github.com/cduck/drawSvg
 * https://vanseodesign.com/web-design/svg-viewport/
+
+dot 
+position: (x: float, y: float)
+label: (text: str, relative_position: enum)
+zone: str
+
+relative position: Left | Right | Above | Below    
+zone: Queued | Asc Base | Asc Peak | Apex | Desc Peak | Desc Base | Conquered
+
+
+
